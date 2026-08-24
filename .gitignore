@@ -1,0 +1,15 @@
+.DS_Store
+**/.DS_Store
+
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+.venv/
+venv/
+.env
+
+.adaptive-teach/

@@ -125,12 +125,14 @@ performance, or generated course.
 
 ### Codex
 
-Copy or clone this directory into your Codex skills directory:
+Clone the repository into your user-level Codex skills directory:
 
 ```bash
-mkdir -p ~/.codex/skills
-cp -R adaptive-teach ~/.codex/skills/
-python3 -m pip install -r ~/.codex/skills/adaptive-teach/scripts/requirements.txt
+mkdir -p "$HOME/.agents/skills"
+git clone https://github.com/PierpaoloV/adaptive-teach.git \
+  "$HOME/.agents/skills/adaptive-teach"
+python3 -m pip install -r \
+  "$HOME/.agents/skills/adaptive-teach/scripts/requirements.txt"
 ```
 
 Restart or reload Codex if needed, then invoke the skill explicitly:
@@ -212,6 +214,7 @@ modifying canonical lesson sources.
 
 ```text
 adaptive-teach/
+├── LICENSE                  # MIT license
 ├── SKILL.md                 # Small controller and invariant set
 ├── README.md                # Public project documentation
 ├── agents/openai.yaml       # Codex display and invocation metadata
@@ -246,3 +249,7 @@ user to coordinate multiple skills.
 Adaptive Teach does not promise a perfectly predicted curriculum. It promises
 that every next milestone is based on the best available evidence about the
 learner, the domain, and the work completed so far.
+
+## License
+
+Adaptive Teach is released under the [MIT License](LICENSE).
