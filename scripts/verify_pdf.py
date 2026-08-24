@@ -34,11 +34,14 @@ def render_pages(pdf: Path, render_dir: Path) -> tuple[list[str], str]:
         return files, "pdftoppm"
 
     try:
-        import fitz  # type: ignore
-    except ImportError as exc:
-        raise RuntimeError(
-            "No page renderer. Install Poppler or PyMuPDF: python3 -m pip install pymupdf"
-        ) from exc
+        import pymupdf as fitz  # type: ignore
+    except ImportError:
+        try:
+            import fitz  # type: ignore
+        except ImportError as exc:
+            raise RuntimeError(
+                "No page renderer. Install Poppler or PyMuPDF: python3 -m pip install pymupdf"
+            ) from exc
     document = fitz.open(pdf)
     files = []
     for index, page in enumerate(document):

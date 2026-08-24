@@ -17,8 +17,9 @@ def initialize(course_root: Path) -> Path:
 
     assets = Path(__file__).resolve().parents[1] / "assets" / "workspace"
     workspace.mkdir(parents=True)
-    for name in ("ONBOARDING.md", "LEARNER.md", "ROADMAP.md", "RESOURCES.md", ".gitignore"):
+    for name in ("ONBOARDING.md", "LEARNER.md", "ROADMAP.md", "RESOURCES.md"):
         shutil.copy2(assets / name, workspace / name)
+    shutil.copy2(assets / "gitignore.template", workspace / ".gitignore")
 
     for directory in (
         "lessons",
@@ -47,4 +48,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
