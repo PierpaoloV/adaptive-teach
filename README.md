@@ -145,6 +145,33 @@ first-year university problem set independently.
 The included `agents/openai.yaml` disables implicit invocation so that a normal
 question does not unexpectedly start or modify a persistent course.
 
+### Claude Code
+
+Clone the repository into your user-level Claude skills directory:
+
+```bash
+mkdir -p "$HOME/.claude/skills"
+git clone https://github.com/PierpaoloV/adaptive-teach.git \
+  "$HOME/.claude/skills/adaptive-teach"
+python3 -m pip install -r \
+  "$HOME/.claude/skills/adaptive-teach/scripts/requirements.txt"
+```
+
+A symlink into `$HOME/.claude/skills/` works equally well when you want to keep
+the checkout elsewhere. Place the directory in `.claude/skills/` inside a
+project instead if the course should be project-scoped.
+
+Invoke the skill explicitly:
+
+```text
+/adaptive-teach I want to learn classical mechanics well enough to solve a
+first-year university problem set independently.
+```
+
+`disable-model-invocation: true` in the `SKILL.md` frontmatter is the Claude
+equivalent of the Codex `allow_implicit_invocation: false` policy: a normal
+question never starts or modifies a persistent course.
+
 ### Other skill-compatible agents
 
 The core contract uses Markdown files and Python scripts rather than

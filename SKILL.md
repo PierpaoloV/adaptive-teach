@@ -1,6 +1,8 @@
 ---
 name: adaptive-teach
 description: Run a persistent, evidence-driven learning course with diagnostic onboarding, adaptive lessons, verified lesson PDFs, and milestone replanning. Use only when the user explicitly wants a multi-session learning project, not for one-off explanations.
+disable-model-invocation: true
+argument-hint: "What do you want to learn, and to what standard?"
 ---
 
 # Adaptive Teach
