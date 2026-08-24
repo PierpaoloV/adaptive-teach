@@ -1,0 +1,6 @@
+interface:
+  display_name: "Adaptive Teach"
+  short_description: "Run a calibrated, adaptive learning course"
+  default_prompt: "Use $adaptive-teach to build and run a stateful learning course for my goal."
+policy:
+  allow_implicit_invocation: false
